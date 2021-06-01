@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Conversor</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <div><img src="" alt="logo"></div>
+        <h1>Conversor de metros e centímetros</h1>
+    </header>
+    <section>
+        <div>
+            <div>
+                <label for="number">Digite o número para converter</label><br>
+                <input type="number" name="numero" id="numero"><br>
+                <p>Converter para:</p>
+                <input type="radio" name="converter" id="centimetros" class="radio">
+                <label for="centimetros" class="radio">Centímetros</label><br>
+                <input type="radio" name="converter" id="metros" class="radio">
+                <label for="metros" class="radio">Metros</label><br>
+                <input type="button" value="Calcular" onclick="calcular()">
+            </div>
+            <div id="res">
+                aqui vai o resultado
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy;felipedantas</p>
+    </footer>
+    <script>
+        let num = document.getElementById("numero")
+        let res = document.getElementById("res")
+        let radio = document.getElementsByName("converter")
+        function calcular() {
+            if(radio[0].checked){
+                //vamos converter para centímetros
+                let r = Number(num.value)*100
+                res.innerHTML = `${num.value} metros, equivale à <strong> ${r} </strong>centímetros!`
+            }else{
+                //vamos converter para metros
+                let r = Number(num.value)/100
+                res.innerHTML = `${num.value} centímetros, equivale à <strong>${r}</strong metros!>`
+            }
+            
+        }
+    </script>
+</body>
+</html>
